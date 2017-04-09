@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_action( 'show_user_profile', 'abaka_extra_user_profile_fields', 200 );
 add_action( 'edit_user_profile', 'abaka_extra_user_profile_fields', 200 );
+
 //show new field on back-end
 function abaka_extra_user_profile_fields( $user ) {
 ?>
@@ -81,8 +82,6 @@ function woocommerce_custom_surcharge() {
 		$woocommerce->cart->add_fee( 'Kleine orderkosten', $fee, true, '' );
 	}	
 }
-
-
 ?>
 
 <?php
@@ -108,6 +107,7 @@ function abaka_woocommerce_edit_account_form() {
   <?php
 }
 
+//add user id to WC notification emails
 add_action( 'woocommerce_email_after_order_table', 'wc_add_user_id_to_emails', 15, 2 );
 function wc_add_user_id_to_emails( $order, $is_admin_email ) {
     $order_id = $order->id;
